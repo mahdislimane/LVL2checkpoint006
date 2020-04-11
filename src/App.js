@@ -39,42 +39,48 @@ function App() {
     setcible(e.target.name);
   };
   return (
-    <div className="App">
-      <input
-        placeholder="add your todo"
-        type="text"
-        onChange={handleChange}
-        value={newtodo}
-      ></input>
-      <Button onClick={add}>add</Button>
-      <div className="container-fluid row">
-        <div className="todolist col-12">
-          {todo.map((el, i) => {
-            return (
-              <div className="todo row">
-                <h3 className="col-8" style={{ textAlign: "center" }}>
-                  {el}
-                </h3>
-                <Button
-                  className="col-2"
-                  variant="primary"
-                  name={i}
-                  onClick={handleShow}
-                >
-                  edit
-                </Button>
-                <Button
-                  className="col-2"
-                  variant="secondary"
-                  name={i}
-                  onClick={deletetodo}
-                >
-                  delete
-                </Button>
-              </div>
-            );
-          })}
-        </div>
+    <div className="App container-fluid row">
+      <div className="col-12" style={{ margin: 20 }}>
+        <div className="col-3"></div>
+        <input
+          className="col-7 "
+          placeholder="add your todo"
+          type="text"
+          onChange={handleChange}
+          value={newtodo}
+        ></input>
+        <Button className="col-2" onClick={add}>
+          add
+        </Button>
+      </div>
+      <div className="todolist col-12">
+        {todo.map((el, i) => {
+          return (
+            <div className="todo ">
+              <h3 key={i + 100} className="col-8 border">
+                {el}
+              </h3>
+              <Button
+                key={i + 10000}
+                className="col-2"
+                variant="primary"
+                name={i}
+                onClick={handleShow}
+              >
+                edit
+              </Button>
+              <Button
+                key={i + 1000000}
+                className="col-2"
+                variant="secondary"
+                name={i}
+                onClick={deletetodo}
+              >
+                delete
+              </Button>
+            </div>
+          );
+        })}
       </div>
       <>
         <Modal show={show} onHide={handleClose}>

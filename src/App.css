@@ -9,4 +9,8 @@
 .todo {
   display: flex;
   justify-content: center;
+  margin: 5px;
+}
+.border {
+  margin-top: 6px;
 }
